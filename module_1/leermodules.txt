@@ -1,5 +1,8 @@
-deel_1_omgaan_met_gegevens/
-deel_2_wat_als/
-deel_3_fouten_ en_uitzonderingen/
-deel_4_uitbreidingen_maken/
-proef_dungeonkeeper /
+Leerdoelen
+Je gebruikt verschillende datatypes, zoals int, str en bool, om gegevens op te slaan en te manipuleren in je Python-code.
+
+Je implementeert logica in je code met if, elif en else statements om je programma te laten reageren op verschillende invoer en omstandigheden.
+
+Je debugt je code door fouten op te sporen, te analyseren en op te lossen met behulp van print() statements en exception handling (try en except).
+
+Je structureerd je code door goed georganiseerde codeblokken te schrijven, zodat je programma’s efficiënt en overzichtelijk zijn.

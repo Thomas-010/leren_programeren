@@ -1,0 +1,8 @@
+Leerdoelen
+Je past de while-loop toe om herhalende taken uit te voeren zolang een bepaalde voorwaarde waar is, en voorkomt oneindige loops.
+
+Je gebruikt de for-loop om efficiënt door lijsten, strings en andere iterabele structuren te itereren.
+
+Je beheert gegevens met collections zoals lijsten, sets en dictionaries, en manipuleert deze om informatie op te slaan en op te halen.
+
+Je werkt oplossingsgericht door herhalingen en data effectief in te zetten bij het analyseren en oplossen van programmeeruitdagingen.

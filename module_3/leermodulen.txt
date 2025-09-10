@@ -1,0 +1,8 @@
+Leerdoelen
+Je leest en interpreteert flowcharts om de logica en stappen van een programma te begrijpen en toe te passen.
+
+Je schrijft functies met parameters en return-waarden om je code overzichtelijk, herbruikbaar en efficiënter te maken.
+
+Je denkt na over de flow van je programma en gebruikt flowcharts om je project gestructureerd en doordacht op te bouwen.
+
+Je test je functies technisch om te controleren of ze correct werken en voorkomt hiermee fouten in je code.

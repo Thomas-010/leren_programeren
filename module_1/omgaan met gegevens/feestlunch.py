@@ -4,11 +4,11 @@ woord = 'variable'
 {colored(woord, 'yellow', attrs=['bold'])}
 
 
-croissantjes = 17
-prijsc = 0.37
-stokbrood = 2
-prijss = 2.38
-kortingsbon3s = 1.50
+croissantjes = int(input('Hoeveel croissantjes?'))
+prijsc = int(input('Wat is de prijs van de croissantjes?'))
+stokbrood = int(input('Hoeveel stokbroden?'))
+prijss = int(input('Wat is de prijs van de stokbroden?'))
+kortingsbon3s = int(input('Waarde van kortingsbon'))
 
 
 

@@ -1,12 +1,18 @@
+from termcolor import colored, cprint, COLORS
 
-from termcolor import colored
+toegang_ticket_euro = float(input("vul hier de prijs van 1 toegang ticket in: "))
+toegang_ticket = int(round(toegang_ticket_euro * 100))
+vr_euro = float(input("vul hier de prijs van 5 minuten vr: "))
+vr_tijd = int (input ("vul hier in hoelang je in de vr wilt in minuten: "))
+vr_tijd_omgerekend = int(round(vr_tijd / 5))
+vr = int(round(vr_euro * 100))
+personen = int(input("vul hier de hoeveel personen mee gaan: "))
 
-vrienden = 5.00
-toegang = 7.45
-vr = 16.65
-totaalbedrag = 29.10
+#kortingsbon = int(round(kortingsbon_euro * 100))
 
+totaal = (toegang_ticket * personen) + (vr * vr_tijd_omgerekend * personen)
+totaal2 = int(round(totaal / 2))
 
-totaal = (f'{(vrienden + toegang + vr) / 2} ')
+print (totaal)
 
-print (f'Dit geweldige dagje-uit met 5 mensen in de Speelhal met 45 minuten VR kost je maar {colored(totaal, 'yellow', attrs=['bold'])} euro per persoon voor 2 mensen')
+print(f"Dit geweldige dagje-uit met {colored(personen, 'blue')} mensen in de Speelhal met {vr_tijd} minuten VR kost je maar {colored(totaal2, 'red')} eurocent per persoon voor 2 mensen")

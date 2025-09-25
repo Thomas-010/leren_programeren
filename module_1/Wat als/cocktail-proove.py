@@ -1,20 +1,43 @@
-negroni = "3cl gin, 3cl Campari, 3cl sweet vermouth"
-mojito = "4 cl (8 parts) White Rum, 3 cl (6 parts) Fresh Lime Juice, 6 blaadjes munt, 2 tl suiker, Sodawater"
-kiv = "9 cl (9 parts) White Wine, 1 cl (1 part) Crème de Cassis"
-white_lady = "4 cl Gin, 3 cl Triple Sec, 2 cl citroensap"
-spritz = "9 cl Prosecco, 6 cl Aperol, Scheutje sodawater"
-fizz = "4,5 cl Gin, 3 cl vers citroensap, 1 cl suikersiroop, Sodawater"
-french_martini = "1,5 cl Chambord, 4,5 cl Vodka, 1,5 cl Ananassap"
-french_connection = "3,5 cl Amaretto Liqueur, 3,5 cl Cognac"
+cocktails = {
+    "Negroni": ["Gin", "Rode Vermouth", "Campari"],
+    "Mojito": ["Witte Rum", "Limoensap", "Munt", "Suiker", "Sodawater"],
+    "Kir": ["Witte Wijn", "Crème de Cassis"],
+    "White Lady": ["Gin", "Cointreau", "Citroensap"],
+    "Spritz": ["Prosecco", "Aperol", "Sodawater"],
+    "Fizz": ["Gin", "Citroensap", "Suiker", "Sodawater"],
+    "French Martini": ["Chambord", "Vodka", "Ananassap"],
+    "French Connection": ["Amaretto", "Cognac"]
+}
+
+
+def toon_cocktail(naam):
+    print(f"\nJouw cocktail is: {naam}!")
+    print("Ingrediënten:")
+    for ingr in cocktails[naam]:
+        print(f" - {ingr}")
 
 #begin
-rood = input('Zit er rood in je drank? [ja/nee]:')
-mint = input('Zit er mint in je drank [ja/nee]')
+rood = input('Zit er rood in je drank? [ja/nee]:').strip().lower()
 
 if rood == "ja":
-
+    bruis = input("Zit er bubbels in je drankje [ja/nee]").strip().lower()
+    if bruis == "ja":
+        bitter = input("Is je drankje bitter [ja/nee]").strip().lower()
+        if bitter == "ja":
+            toon_cocktail('Spritz')
+        else:
+            toon_cocktail('Kir')
     else:
-
-if mint == "ja":
-
+        sterk = input ('Wordt je cocktail als sterk/klassiek ervaren? [ja/nee]]').strip().lower()
+        if sterk == 'ja':
+            toon_cocktail('Negroni')
+        else:
+            toon_cocktail('French Martini')
+else:
+    kleur = input('Is je cocktail helder/lichtgeel? [ja/nee]').strip().lower()
+    if kleur == 'ja':
+        toon_cocktail('White Lady')
     else:
+        toon_cocktail('French Connection')
+        
+

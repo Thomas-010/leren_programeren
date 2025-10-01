@@ -14,8 +14,5 @@ elif gekozen_seizoen == 'd':
     weer_type = 'koud'
 else:
      weer_type = ''
-
-if len(weer_type) > 0:
+if weer_type:
     print(f'Dus jij houd van {weer_type} weer!')
-else:
-    print('Dit is geen te kiezen optie!')

@@ -1,8 +1,8 @@
-a = (input('Geef een woord: '))
-b = (input('Geef nog een woord: '))
+a = input('Geef een woord: ')
+b = input('Geef nog een woord: ')
 
-a = a.lower()
-b = b.lower()
+#a = a.lower()
+#b = b.lower()
 
 if a < b:     
     print ('Woord 1 heeft meer letters dan woord 2')

@@ -13,12 +13,12 @@ beschrijving = [
 'zeer goed',
 'uitmuntend',
 ]
-
+print(cijfer)
 if cijfer < 1 or cijfer > 10:
     print('Dit kan ik niet omzetten!')
-elif 6 >= cijfer:
+elif cijfer >= 6:
     print (f"Gefeliciteerd, {beschrijving[cijfer_afgerond]} je resultaat is een {cijfer}")
-else: 6 <= cijfer
-print (f"Jammer, {beschrijving[cijfer_afgerond]} je resultaat is een {cijfer}")
+else:
+    print (f"Jammer, {beschrijving[cijfer_afgerond]} je resultaat is een {cijfer}")
 
 

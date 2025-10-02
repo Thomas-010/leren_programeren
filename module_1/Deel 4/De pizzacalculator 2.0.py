@@ -5,9 +5,10 @@ prijs3 = 11.10
 
 pizza1 = (input("Hoeveel small pizza's wilt u?: "))
 if not type(pizza1) is int:
-    raise ('Dit is geen heel nummer!')
-
+    print ('Dit is geen heel nummer!')
 pizza2 = (input("Hoeveel medium pizza's wilt u?: "))
+if not type(pizza2) is int:
+    print ('Dit is geen heel nummer!')
 pizza3 = (input("Hoeveel large pizza's wilt u?: "))
 
 print ('**************Kassa bon**************')

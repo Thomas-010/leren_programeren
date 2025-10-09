@@ -23,7 +23,14 @@ print('Op zijn borst zit een numpad met de toesten 9 t/m 0.')
 print(f'Daarboven zie je een som staan {r1} {r3} {r2}')
 antwoord = int(input('Wat toest je in?'))
 
-if antwoord == r1 + r2:
+if r3 == "+":
+    goed = r1 + r2
+elif r3 == "*":
+    goed = r1 * r2
+elif r3 == "-":
+    goed = r1 - r2
+
+if antwoord == goed:
     print('Het stadbeeld laat de sleutel vallen en je pakt het op')
 else:
     print('Er gebeurt niets....')
@@ -36,7 +43,11 @@ time.sleep(1)
 #item = 'schild'
 #player_defense += 1
 
-item = random.choice(["Schild", "Swaard"])
+item = random.choice(["Zwaard", "Schild"])
+if item == "Zwaard":
+    player_attack += 2
+elif item == "Schild":
+    player_defense += 1
 
 print('Je duwt hem open en stap een hele lange kamer binnen.')
 print(f'In deze kamer staat een tafel met daarop een {item}.')

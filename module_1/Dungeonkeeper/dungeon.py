@@ -12,24 +12,25 @@ r1 = random.randint(10,25)
 r2 = random.randint(-5,75)
 r3 = random.choice(["+", "*", "-"])
 
-def gevecht(attack, defence, health):
-    zombie_hit_damage = (attack - player_defense)
-    new_player_health = (attack - player_health)
+def gevecht(attack, defence, health, monster_attack, monster_defence, monster_health):
+    print(attack,defence,health)
+    zombie_hit_damage = (monster_attack - player_defense)
+    # new_player_health = (attack - player_health)
     if zombie_hit_damage <= 0:
         print('Jij hebt een te goede verdedigign voor de zombie, hij kan je geen schade doen.')
     else:
         zombie_attack_amount = math.ceil(player_health / zombie_hit_damage)
-        player_hit_damage = (player_attack - defence)
-        player_attack_amount = math.ceil(health / player_hit_damage)
+        player_hit_damage = (player_attack -monster_defence)
+        player_attack_amount = math.ceil(monster_health / player_hit_damage)
 
-    if player_attack_amount <= zombie_attack_amount:
+    if player_attack_amount < zombie_attack_amount:
         damage = (player_attack_amount * zombie_hit_damage)
-        new_player_health = max(0, player_health - damage)
+        health = health - damage
         print(f'In {player_attack_amount} rondes versla je de zombie.')
-        print(f'Je health is nu {new_player_health}.')
-        return new_player_health
+        print(f'Je health is nu {health}.')
+        return health
     else:
-        print('Helaas is de zombie te sterk voor je.')
+        print('Helaas is het monster te sterk voor je.')
         print('Game over.')
         exit()
     print('') 
@@ -74,15 +75,16 @@ print('Een deur gaat naar kamer 6')
 print('De andere deur gaat naar kamer 3')
 print('Door welke deur ga je heen?')
 kamer = input('Kies je voor kamer 6 of kamer 3?')
-if kamer == "Kamer 6":
+if kamer == "kamer 6":
     print('Je gaat door naar kamer 6!')
 
     time.sleep(1)
     # === [kamer 6] === #
     print(f'Dapper loop je de kamer binnen.')
     print('Je loopt tegen een zombie aan.')
-    player_health = gevecht(1,0,2)
-
+    print(player_health)
+    player_health = gevecht(player_attack,player_defense,player_health,1,0,2 )
+    print(player_health)
 
 
 # === [kamer 3] === #
@@ -102,7 +104,7 @@ time.sleep(1)
 # === [kamer 4] === #
 print(f'Dapper loop je de kamer binnen.')
 print('Je loopt tegen een goblin aan.')
-player_health = gevecht(2,0,3)
+player_health = gevecht(player_health, player_attack, player_defense, 2,0,3)
 
 
 

@@ -7,6 +7,7 @@ player_health = 3
 new_player_health = 0
 
 
+
 r1 = random.randint(10,25)
 r2 = random.randint(-5,75)
 r3 = random.choice(["+", "*", "-"])
@@ -45,6 +46,9 @@ print('Je opent de deur.')
 time.sleep(1)
 
 # === [kamer 2] === #
+Kamer_6 = bool
+Kamer_2 = bool
+
 print('Je stapt door de deur heen en je ziet een standbeeld voor je.')
 print('Het standbeeld heeft een sleutel vast.')
 print('Op zijn borst zit een numpad met de toesten 9 t/m 0.')
@@ -65,13 +69,19 @@ else:
     print('Er gebeurt niets....')
     sleutel = False
 
-print('Je ziet een deur achter het standbeeld.')
-print('')
-time.sleep(1)
-# === [kamer 6] === #
-print(f'Dapper loop je de kamer binnen.')
-print('Je loopt tegen een zombie aan.')
-player_health = gevecht(1,0,2)
+print('Je ziet twee deuren voor je')
+print('Een deur gaat naar kamer 6')
+print('De andere deur gaat naar kamer 3')
+print('Door welke deur ga je heen?')
+kamer = input('Kies je voor kamer 6 of kamer 3?')
+if kamer == "Kamer 6":
+    print('Je gaat door naar kamer 6!')
+
+    time.sleep(1)
+    # === [kamer 6] === #
+    print(f'Dapper loop je de kamer binnen.')
+    print('Je loopt tegen een zombie aan.')
+    player_health = gevecht(1,0,2)
 
 
 

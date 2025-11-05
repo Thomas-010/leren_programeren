@@ -49,7 +49,7 @@ print('Je stapt door de deur heen en je ziet een standbeeld voor je.')
 print('Het standbeeld heeft een sleutel vast.')
 print('Op zijn borst zit een numpad met de toesten 9 t/m 0.')
 print(f'Daarboven zie je een som staan {r1} {r3} {r2}')
-antwoord = int(input('Wat toest je in?'))
+antwoord = int(input('Wat toets je in?'))
 
 if r3 == "+":
     goed = r1 + r2

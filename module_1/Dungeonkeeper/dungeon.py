@@ -15,7 +15,6 @@ r3 = random.choice(["+", "*", "-"])
 def gevecht(attack, defence, health, monster_attack, monster_defence, monster_health):
     print(attack,defence,health)
     zombie_hit_damage = (monster_attack - player_defense)
-    # new_player_health = (attack - player_health)
     if zombie_hit_damage <= 0:
         print('Jij hebt een te goede verdedigign voor de zombie, hij kan je geen schade doen.')
     else:
@@ -34,7 +33,7 @@ def gevecht(attack, defence, health, monster_attack, monster_defence, monster_he
         print('Game over.')
         exit()
     print('') 
-    time.sleep(1)
+    time.sleep(2)
     return player_health
 
 
@@ -44,7 +43,15 @@ print('Het ruikt hier muf en vochtig.')
 print('Je ziet een deur voor je.')
 print('Je loopt naar de deur toe.')
 print('Je opent de deur.')
-time.sleep(1)
+time.sleep(2)
+
+
+# === [kamer 7] === #
+rupee = 1
+print('Je loopt de kamer binnen en je ziet iets glinsteren')
+print('Je loopt dichterbij en je ziet dat het een Rupee is en je pakt het op')
+print(f"Je hebt nu {rupee} Rupee")
+time.sleep(2)
 
 # === [kamer 2] === #
 Kamer_6 = bool
@@ -78,7 +85,7 @@ kamer = input('Kies je voor kamer 6 of kamer 3?')
 if kamer == "kamer 6":
     print('Je gaat door naar kamer 6!')
 
-    time.sleep(1)
+    time.sleep(2)
     # === [kamer 6] === #
     print(f'Dapper loop je de kamer binnen.')
     print('Je loopt tegen een zombie aan.')
@@ -88,23 +95,32 @@ if kamer == "kamer 6":
 
 
 # === [kamer 3] === #
-item = random.choice(["Zwaard", "Schild"])
-if item == "Zwaard":
+print (player_attack, player_defense)
+print('In de kamer zie je een Sneaky Goblin die items verkoopt bij het verkoopverpunt')
+print('Je loopt op het verkooppunt af')
+print('Je ziet dat je hier items kan kopen zoals een zwaard en een schild!')
+print(f'Je ziet dat het zwaard 1 rupee kost en het schild kost ook 1 rupee ')
+koop = input('Wil je iets kopen! Zoja wat wil je kopen?')
+if koop == "zwaard":
     player_attack += 2
-elif item == "Schild":
+elif koop == "schild":
     player_defense += 1
 
-print('Je duwt hem open en stap een hele lange kamer binnen.')
-print(f'In deze kamer staat een tafel met daarop een {item}.')
-print(f'Je pakt het {item} op en houd het bij je.')
-print('Op naar de volgende deur.')
-print('')
-time.sleep(1)
+print (player_attack, player_defense, player_health )
+
+
+# print('Je duwt hem open en stap een hele lange kamer binnen.')
+# print(f'In deze kamer staat een tafel met daarop een {item}.')
+# print(f'Je pakt het {item} op en houd het bij je.')
+# print('Op naar de volgende deur.')
+# print('')
+time.sleep(2)
 
 # === [kamer 4] === #
 print(f'Dapper loop je de kamer binnen.')
 print('Je loopt tegen een goblin aan.')
 player_health = gevecht(player_health, player_attack, player_defense, 2,0,3)
+time.sleep(2)
 
 
 

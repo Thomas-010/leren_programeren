@@ -7,11 +7,6 @@ player_health = 3
 new_player_health = 0
 
 
-
-r1 = random.randint(10,25)
-r2 = random.randint(-5,75)
-r3 = random.choice(["+", "*", "-"])
-
 def gevecht(attack, defence, health, monster_attack, monster_defence, monster_health):
     print(attack,defence,health)
     zombie_hit_damage = (monster_attack - player_defense)
@@ -58,6 +53,9 @@ if kamer1 == "2":
     # === [kamer 2] === #
     Kamer_6 = bool
     Kamer_2 = bool
+    r1 = random.randint(10,25)
+    r2 = random.randint(-5,75)
+    r3 = random.choice(["+", "*", "-"])
 
     print('Je stapt door de deur heen en je ziet een standbeeld voor je.')
     print('Het standbeeld heeft een sleutel vast.')
@@ -83,7 +81,7 @@ if kamer1 == "2":
     print('Een deur gaat naar kamer 6')
     print('De andere deur gaat naar kamer 3')
     print('Door welke deur ga je heen?')
-    kamer = input('Kies je voor kamer 6 of kamer 3?: ')
+    kamer = input('Kies je voor kamer 6 of kamer 8?: ')
     if kamer == "kamer 6":
         print('Je gaat door naar kamer 6!')
 
@@ -97,14 +95,53 @@ if kamer1 == "2":
 
 time.sleep(2)
 # === [kamer 8] === #
+player_health
 
+print('Welkom bij de gokmachine!')
+print("Dit is hoe het werk!")
+print("Als de dobbelstenen hoger dan 7 zijn, worden je Rupees verdubbeld!")
+print("Als de dobbelstenen lager dan 7 zijn, verlies je 1 health point ")
+print("Als de dobbelstenen gelijk aan 7 zijn heb je de jackpot, je krijgt dan 1 Rupees en 4 health points ")
+gokken = input('Wil je een poging wagen?: ')
+if gokken == "ja":
+    while player_health > 0:
+        g1 = random.randint(1,6)
+        g2 = random.randint(1,6)
+        print("Veel succes!")
+        print("De goblin gooit de dobbelstenen")
+        print(f'De goblin heeft {g1 + g2} gegooid!')
+        if g1 + g2 > 7:
+            print ('Je heb hoger gegooid dan 7, gefeliciteerd je Rupees worden verdubbeld!')
+            rupee *= 2
+        elif g1 + g2 == 7:
+            print ("Je heb de jackpot, je krijgt 1 Rupees en 4 health erbij!")
+            rupee += 1
+            player_health += 4
+        elif g1 + g2 < 7:
+            print ('Je heb lager gegooid dan 7, je verliest 1 health!')
+            player_health -= 1
+        if player_health == 0:
+            print(f"Je health is {player_health}")
+            print("Helaas je bent game over!")
+            exit()
+        opnieuw = input("Wil je nog een keer gokken! ja of nee: ")
+        if opnieuw == "ja":
+            print (player_health)
+            print (gokken)
+        else:
+            print ("Helaas, tot de volgende keer!")
+            print (f"Je heb nu {rupee} Rupees! ")
+            print (f"Je heb nu {player_health} health!")
+            break
+else:
+    print ("Helaas dan niet!")
 
+time.sleep(2)
 # === [kamer 3] === #
-print (player_attack, player_defense)
 print('In de kamer zie je een Sneaky Goblin die items verkoopt bij het verkoopverpunt')
 print('Je loopt op het verkooppunt af')
 print('Je ziet dat je hier items kan kopen zoals een zwaard en een schild!')
-print(f'Je ziet dat het zwaard 1 rupee kost en het schild kost ook 1 rupee ')
+print('Je ziet dat het zwaard 1 rupee kost en het schild kost ook 1 rupee ')
 koop = input('Wil je iets kopen! Zoja wat wil je kopen?')
 if koop == "zwaard":
     player_attack += 2

@@ -51,7 +51,7 @@ print('Je loopt de kamer binnen en je ziet iets glinsteren')
 print('Je loopt dichterbij en je ziet dat het een Rupee is en je pakt het op')
 print(f"Je hebt nu {rupee} Rupee")
 print("Je ziet 2 deuren voor je naar welke kamer ga je?")
-kamer1 = input('Kies je voor kamer 2 of kamer 3?')
+kamer1 = input('Kies je voor kamer 2 of kamer 8?')
 if kamer1 == "2":
     print('Je gaat door naar kamer 2!')
 
@@ -83,7 +83,7 @@ if kamer1 == "2":
     print('Een deur gaat naar kamer 6')
     print('De andere deur gaat naar kamer 3')
     print('Door welke deur ga je heen?')
-    kamer = input('Kies je voor kamer 6 of kamer 3?')
+    kamer = input('Kies je voor kamer 6 of kamer 3?: ')
     if kamer == "kamer 6":
         print('Je gaat door naar kamer 6!')
 
@@ -96,46 +96,7 @@ if kamer1 == "2":
         print(player_health)
 
 time.sleep(2)
-
-# === [kamer 2] === #
-# Kamer_6 = bool
-# Kamer_2 = bool
-
-# print('Je stapt door de deur heen en je ziet een standbeeld voor je.')
-# print('Het standbeeld heeft een sleutel vast.')
-# print('Op zijn borst zit een numpad met de toesten 9 t/m 0.')
-# print(f'Daarboven zie je een som staan {r1} {r3} {r2}')
-# antwoord = int(input('Wat toets je in?'))
-
-# if r3 == "+":
-#     goed = r1 + r2
-# elif r3 == "*":
-#     goed = r1 * r2
-# elif r3 == "-":
-#     goed = r1 - r2
-
-# if antwoord == goed:
-#     print(f'Het stadbeeld laat de sleutel vallen en je pakt het op')
-#     sleutel = True
-# else:
-#     print('Er gebeurt niets....')
-#     sleutel = False
-
-# print('Je ziet twee deuren voor je')
-# print('Een deur gaat naar kamer 6')
-# print('De andere deur gaat naar kamer 3')
-# print('Door welke deur ga je heen?')
-# kamer = input('Kies je voor kamer 6 of kamer 3?')
-# if kamer == "kamer 6":
-#     print('Je gaat door naar kamer 6!')
-
-#     time.sleep(2)
-#     # === [kamer 6] === #
-#     print(f'Dapper loop je de kamer binnen.')
-#     print('Je loopt tegen een zombie aan.')
-#     print(player_health)
-#     player_health = gevecht(player_attack,player_defense,player_health,1,0,2 )
-#     print(player_health)
+# === [kamer 8] === #
 
 
 # === [kamer 3] === #
@@ -159,7 +120,6 @@ print(f'Dapper loop je de kamer binnen.')
 print('Je loopt tegen een goblin aan.')
 player_health = gevecht(player_health, player_attack, player_defense, 2,0,3)
 time.sleep(2)
-
 
 
 # === [kamer 5] === #

@@ -138,22 +138,36 @@ else:
 
 time.sleep(2)
 # === [kamer 3] === #
+item = ("")
 print('In de kamer zie je een Sneaky Goblin die items verkoopt bij het verkoopverpunt')
 print('Je loopt op het verkooppunt af')
 print('Je ziet dat je hier items kan kopen zoals een zwaard en een schild!')
 print('Je ziet dat het zwaard 1 rupee kost en het schild kost ook 1 rupee ')
-koop = input('Wil je iets kopen! Zoja wat wil je kopen?')
-if koop == "zwaard":
+if rupee >= 2:
+    print("Ik voel dat jij meer dan 2 Rupees heb!")
+    print("Je moet het zwaard en schild kopen! ")
     player_attack += 2
-elif koop == "schild":
     player_defense += 1
+    item = ("Zwaard en schild")
+if rupee == 1:
+    item = input("Wil je het zwaard of het schild kopen?: ")
+    if item == "zwaard":
+        print(f"Je krijgt nu plus 2 attack!")
+        item = "zwaard"
+        player_attack += 2
+    elif item == "schild":
+        print(f"Je krijgt plus 1 defence!")
+        item = ("schild")
+        player_defense += 1
+
+
 
 print (player_attack, player_defense, player_health )
 
 time.sleep(2)
 
 # === [kamer 4] === #
-print(f'Dapper loop je de kamer binnen.')
+print(f'Dapper loop je de kamer binnen met je nieuwe {item}.')
 print('Je loopt tegen een goblin aan.')
 player_health = gevecht(player_health, player_attack, player_defense, 2,0,3)
 time.sleep(2)

@@ -41,9 +41,14 @@ print('Je opent de deur.')
 time.sleep(2)
 
 # === [kamer 7] === #
-rupee = 1
-print('Je loopt de kamer binnen en je ziet iets glinsteren')
-print('Je loopt dichterbij en je ziet dat het een Rupee is en je pakt het op')
+if random.randint(1,10) == 1:
+    rupee = 0
+    print("Je loopt de kamer binnen! Maar er ligt helemaal niks....")
+else:
+    rupee = 1
+    print("Je loopt de kamer binnen en je ziet iets glinsteren!")
+    print("Je loopt dichterbij en je ziet dat het een Rupee is en je pakt het op.")
+
 print(f"Je hebt nu {rupee} Rupee")
 print("Je ziet 2 deuren voor je naar welke kamer ga je?")
 kamer1 = input('Kies je voor kamer 2 of kamer 8?')
@@ -62,7 +67,7 @@ if kamer1 == "2":
     print('Op zijn borst zit een numpad met de toesten 9 t/m 0.')
     print(f'Daarboven zie je een som staan {r1} {r3} {r2}')
     antwoord = int(input('Wat toets je in?'))
-
+    
     if r3 == "+":
         goed = r1 + r2
     elif r3 == "*":
@@ -71,15 +76,15 @@ if kamer1 == "2":
         goed = r1 - r2
 
     if antwoord == goed:
-        print(f'Het stadbeeld laat de sleutel vallen en je pakt het op')
-        sleutel = True
+        print(f'Je had de som goed! Je krijgt een rupee')
+        rupee += 1 
     else:
         print('Er gebeurt niets....')
-        sleutel = False
+        
 
     print('Je ziet twee deuren voor je')
     print('Een deur gaat naar kamer 6')
-    print('De andere deur gaat naar kamer 3')
+    print('De andere deur gaat naar kamer 8')
     print('Door welke deur ga je heen?')
     kamer = input('Kies je voor kamer 6 of kamer 8?: ')
     if kamer == "kamer 6":
@@ -126,7 +131,6 @@ if gokken == "ja":
             exit()
         opnieuw = input("Wil je nog een keer gokken! ja of nee: ")
         if opnieuw == "ja":
-            print (player_health)
             print (gokken)
         else:
             print ("Helaas, tot de volgende keer!")
@@ -137,39 +141,68 @@ else:
     print ("Helaas dan niet!")
 
 time.sleep(2)
+# === [kamer 9] === #
+print(player_attack , player_defense , player_health)
+print("Je loopt de kamer binnen")
+print("Je voelt dat de kamer is betoverd door de wizard!")
+
+boost = random.choice(["defense", "health"])
+if boost == "defense":
+    player_defense += 1
+    print("Door de magie krijg je er 1 defense bij!")
+if boost == "health":
+    player_health += 2
+    print("Door de magie krijg je er 2 health bij!")
+
+print(f"Je stats zijn nu {player_attack}, {player_defense}, {player_health}!")
+
+
+
 # === [kamer 3] === #
 item = ("")
 print('In de kamer zie je een Sneaky Goblin die items verkoopt bij het verkoopverpunt')
 print('Je loopt op het verkooppunt af')
 print('Je ziet dat je hier items kan kopen zoals een zwaard en een schild!')
-print('Je ziet dat het zwaard 1 rupee kost en het schild kost ook 1 rupee ')
+print('Je ziet dat het zwaard en schild beide 1 Rupee kosten!')
+print(rupee)
+print (player_attack, player_defense, player_health )
+
 if rupee >= 2:
     print("Ik voel dat jij meer dan 2 Rupees heb!")
     print("Je moet het zwaard en schild kopen! ")
     player_attack += 2
     player_defense += 1
     item = ("Zwaard en schild")
-if rupee == 1:
+    rupee -= 2
+elif rupee == 1:
     item = input("Wil je het zwaard of het schild kopen?: ")
     if item == "zwaard":
         print(f"Je krijgt nu plus 2 attack!")
         item = "zwaard"
         player_attack += 2
+        rupee -= 1
     elif item == "schild":
         print(f"Je krijgt plus 1 defence!")
         item = ("schild")
         player_defense += 1
-
-
-
-print (player_attack, player_defense, player_health )
+        rupee -= 1
+if rupee >= 2:
+    sleutel = input("Je kan ook een sleutel kopen voor 2 Rupees!")
+    if sleutel == "ja":
+        print("Dat kost dan 2 Rupees!")
+        rupee -= 2
+        sleutel = True
+    if sleutel == "nee":
+        sleutel = False
+print(rupee)
+print(player_attack, player_defense, player_health )
 
 time.sleep(2)
 
 # === [kamer 4] === #
 print(f'Dapper loop je de kamer binnen met je nieuwe {item}.')
 print('Je loopt tegen een goblin aan.')
-player_health = gevecht(player_health, player_attack, player_defense, 2,0,3)
+player_health = gevecht(player_attack, player_defense, player_health, 2,0,3)
 time.sleep(2)
 
 

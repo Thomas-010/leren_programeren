@@ -9,12 +9,12 @@ new_player_health = 0
 
 def gevecht(attack, defence, health, monster_attack, monster_defence, monster_health):
     print(attack,defence,health)
-    zombie_hit_damage = (monster_attack - player_defense)
+    zombie_hit_damage = (monster_attack - defence)
     if zombie_hit_damage <= 0:
         print('Jij hebt een te goede verdedigign voor de zombie, hij kan je geen schade doen.')
     else:
-        zombie_attack_amount = math.ceil(player_health / zombie_hit_damage)
-        player_hit_damage = (player_attack -monster_defence)
+        zombie_attack_amount = math.ceil(health / zombie_hit_damage)
+        player_hit_damage = (attack -monster_defence)
         player_attack_amount = math.ceil(monster_health / player_hit_damage)
 
     if player_attack_amount < zombie_attack_amount:
@@ -98,7 +98,6 @@ if kamer == "6":
     kamer = input("Kies je voor kamer 3 of kamer 8?: ")
 if kamer == '3':
     kamer = '3'  
-    time.sleep(2)
 if kamer == '8':
     kamer = '8'
     # === [kamer 8] === #
@@ -107,38 +106,41 @@ if kamer == '8':
     print("Als de dobbelstenen hoger dan 7 zijn, worden je Rupees verdubbeld!")
     print("Als de dobbelstenen lager dan 7 zijn, verlies je 1 health point ")
     print("Als de dobbelstenen gelijk aan 7 zijn heb je de jackpot, je krijgt dan 1 Rupees en 4 health points ")
-    gokken = input('Wil je een poging wagen?: ')
-    if gokken == "ja":
-        while player_health > 0:
-            g1 = random.randint(1,6)
-            g2 = random.randint(1,6)
-            print("Veel succes!")
-            print("De goblin gooit de dobbelstenen")
-            print(f'De goblin heeft {g1 + g2} gegooid!')
-            if g1 + g2 > 7:
-                print ('Je heb hoger gegooid dan 7, gefeliciteerd je Rupees worden verdubbeld!')
-                rupee *= 2
-            elif g1 + g2 == 7:
-                print ("Je heb de jackpot, je krijgt 1 Rupees en 4 health erbij!")
-                rupee += 1
-                player_health += 4
-            elif g1 + g2 < 7:
-                print ('Je heb lager gegooid dan 7, je verliest 1 health!')
-                player_health -= 1
-            if player_health == 0:
-                print(f"Je health is {player_health}")
-                print("Helaas je bent game over!")
-                exit()
-            opnieuw = input("Wil je nog een keer gokken! ja of nee: ")
-            if opnieuw == "ja":
-                print (gokken)
-            else:
-                print ("Helaas, tot de volgende keer!")
-                print (f"Je heb nu {rupee} Rupees! ")
-                print (f"Je heb nu {player_health} health!")
-                break
+    if rupee >= 1:
+        gokken = input('Wil je een poging wagen?: ')
+        if gokken == "ja":
+            while player_health > 0:
+                g1 = random.randint(1,6)
+                g2 = random.randint(1,6)
+                print("Veel succes!")
+                print("De goblin gooit de dobbelstenen")
+                print(f'De goblin heeft {g1 + g2} gegooid!')
+                if g1 + g2 > 7:
+                    print ('Je heb hoger gegooid dan 7, gefeliciteerd je Rupees worden verdubbeld!')
+                    rupee *= 2
+                elif g1 + g2 == 7:
+                    print ("Je heb de jackpot, je krijgt 1 Rupees en 4 health erbij!")
+                    rupee += 1
+                    player_health += 4
+                elif g1 + g2 < 7:
+                    print ('Je heb lager gegooid dan 7, je verliest 1 health!')
+                    player_health -= 1
+                if player_health == 0:
+                    print(f"Je health is {player_health}")
+                    print("Helaas je bent game over!")
+                    exit()
+                opnieuw = input("Wil je nog een keer gokken! ja of nee: ")
+                if opnieuw == "ja":
+                    print (gokken)
+                else:
+                    print ("Helaas, tot de volgende keer!")
+                    print (f"Je heb nu {rupee} Rupees! ")
+                    print (f"Je heb nu {player_health} health!")
+                    break
+        else:
+            print ("Helaas dan niet!")
     else:
-        print ("Helaas dan niet!")
+        print('Je hebt niet voldoende rupees om te gokken!')
     kamer = input("Kies je voor kamer 3 of kamer 9?: ")
 if kamer == '3':
     kamer = '3'
@@ -167,40 +169,65 @@ time.sleep(2)
 if kamer == '3':
     kamer = '3'
     # === [kamer 3] === #
-    item = ("")
+    item = []
     print('In de kamer zie je een Sneaky Goblin die items verkoopt bij het verkoopverpunt')
     print('Je loopt op het verkooppunt af')
     print('Je ziet dat je hier items kan kopen zoals een zwaard en een schild!')
     print('Je ziet dat het zwaard en schild beide 1 Rupee kosten!')
+    print('Je ziet dat je ook een sleutel kan kopen!')
     if rupee >= 2:
-        print("Ik voel dat jij meer dan 2 Rupees heb!")
-        print("Je moet het zwaard en schild kopen! ")
-        player_attack += 2
-        player_defense += 1
-        item = ("Zwaard en schild")
-        rupee -= 2
-    elif rupee == 1:
-        item = input("Wil je het zwaard of het schild kopen?: ")
-        if item == "zwaard":
-            print(f"Je krijgt nu plus 2 attack!")
-            item = "zwaard"
-            player_attack += 2
-            rupee -= 1
-        elif item == "schild":
-            print(f"Je krijgt plus 1 defence!")
-            item = ("schild")
-            player_defense += 1
-            rupee -= 1
-    if rupee >= 2:
-        sleutel = input("Je kan ook een sleutel kopen voor 2 Rupees!")
+        sleutel = input("Wil je de sleutel kopen!")
         if sleutel == "ja":
             print("Dat kost dan 2 Rupees!")
             rupee -= 2
             sleutel = True
+        print(f'Je heb de sleutel gekocht! Je heb nu nog {rupee} rupees over')
         if sleutel == "nee":
             sleutel = False
-    print(rupee)
-    print(player_attack, player_defense, player_health )
+            print('Jammer dan geen sleutel')
+
+    if rupee >= 1:
+        print(f'Je heb nu {rupee} rupee(s) om items te kopen')
+        print('Je kan kiezen uit zwaard (1 rupee), schild (1 rupee) of beide (2 rupees)')
+
+        keuze = input('Wat wil je kopen? (zwaard/schild/beide/niks): ')
+
+        if keuze == 'zwaard' and rupee >1:
+            item.append('Zwaard')
+            player_attack += 2
+            rupee -= 1
+            print('Je hebt het zwaard gekocht! Je krijgt nu +2 attack')
+        
+        elif keuze == 'schild' and rupee >=1:
+            item.append('Schild')
+            player_defense += 1
+            rupee -= 1
+            print('Je heb het schild gekocht! Je krijgt +1 defence')
+
+        elif keuze == "beide" and rupee >=2:
+            item.extend(['Zwaard', "Schild"])
+            player_attack += 2
+            player_defense += 1
+            rupee -= 2
+            print('Je hebt zowel het zwaard als schild gekocht! Je krijgt +2 attack en +1 defence')
+
+        elif keuze == 'beide' and rupee == 1:
+            print('Je hebt niet genoeg Rupees om beide te kopen!')
+
+        else:
+            print('Je koopt geen items')
+    
+    else:
+        print('Je hebt geen Rupees om items te kopen!')
+
+
+    print(f'Je huide stats zijn Attack = {player_attack}, defence {player_defense}, Rupees = {rupee} ')
+    print(f'De items die je nu in bezit heb zijn {','.join(item) if item else 'geen items'}')
+    if sleutel:
+        print("Je hebt ook een sleutel!")
+    else:
+        print('Je hebt geen sleutel!')
+
     kamer = '4'
     time.sleep(2)
 

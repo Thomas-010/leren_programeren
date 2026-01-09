@@ -11,7 +11,7 @@ def gevecht(attack, defence, health, monster_attack, monster_defence, monster_he
     print(attack,defence,health)
     zombie_hit_damage = (monster_attack - defence)
     if zombie_hit_damage <= 0:
-        print('Jij hebt een te goede verdedigign voor de zombie, hij kan je geen schade doen.')
+        print('Jij hebt een te goede verdediging voor de zombie, hij kan je geen schade doen.')
     else:
         zombie_attack_amount = math.ceil(health / zombie_hit_damage)
         player_hit_damage = (attack -monster_defence)

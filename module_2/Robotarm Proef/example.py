@@ -7,8 +7,12 @@ from challenges.example import challenges
 robotArm = RobotArm(challenges[1],0)
 
 # your code starts here:
-
-
+robotArm.moveRight()
+robotArm.moveRight()
+robotArm.grab()
+robotArm.moveLeft()
+robotArm.moveLeft()
+robotArm.drop()
 
 # your code ends here
 

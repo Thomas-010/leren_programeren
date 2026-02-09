@@ -7,9 +7,10 @@ from challenges.expert import challenges
 robotArm = RobotArm(challenges[4],0)
 
 # your code starts here:
+
 robotArm.speed = 2
 
-for i in range(7):
+for i in range(6):
     for blok in range(6):
         if robotArm.stackEmpty():
             break

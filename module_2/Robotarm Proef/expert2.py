@@ -7,6 +7,11 @@ from challenges.expert import challenges
 robotArm = RobotArm(challenges[2],0)
 
 # your code starts here:
+robotArm.speed = 2
+def stopwanneerklaar():
+    if robotArm._solutionDone:
+        exit()
+
 
 def PakblokenScan():
     robotArm.grab()
@@ -27,9 +32,11 @@ for i in range(robotArm._maxStacks):
         while robotArm.stackIndex() < robotArm._maxStacks - 1:
             robotArm.moveRight()
         robotArm.drop()
+        stopwanneerklaar()
         while robotArm.stackIndex() > start_index:
             robotArm.moveLeft()
         robotArm.moveRight()
+        stopwanneerklaar()
     else:
         robotArm.drop()
         robotArm.moveRight()

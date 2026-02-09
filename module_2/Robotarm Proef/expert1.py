@@ -7,6 +7,7 @@ from challenges.expert import challenges
 robotArm = RobotArm(challenges[1],0)
 
 # your code starts here:
+
 for i in range(3):
     robotArm.moveRight()
 

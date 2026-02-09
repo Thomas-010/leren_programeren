@@ -9,9 +9,8 @@ robotArm = RobotArm(challenges[3],0)
 # your code starts here:
 def stopwanneerklaar():
     if robotArm._solutionDone:
-        robotArm.report()
-        robotArm.help()
         exit()
+
 robotArm.speed = 2
 robotArm.grab()
 robotArm.moveRight()
@@ -26,6 +25,7 @@ for t in range(2):
     robotArm.moveRight()
 robotArm.drop()
 stopwanneerklaar()
+
 for u in range(1):
     robotArm.moveLeft()
     robotArm.moveLeft()

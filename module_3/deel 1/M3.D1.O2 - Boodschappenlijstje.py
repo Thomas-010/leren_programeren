@@ -30,7 +30,7 @@ while meer_toevoegen:
         print(f"Je hebt {hoeveelheid} {artikel} toegevoegd aan je boodschappenlijstje.\n")
     
 
-    antwoord = input("Wil je nog meer boodschappen toevoegen? (ja/nee): ")
+    antwoord = input("Wil je nog meer boodschappen toevoegen? ja/nee: ")
     
     if antwoord != "ja":
         meer_toevoegen = False

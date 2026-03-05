@@ -11,7 +11,6 @@ robotArm.moveRight()
 
 for x in range(6):
 
-    
     robotArm.grab()
     color = robotArm.scan()
 

@@ -1,0 +1,46 @@
+START
+
+Zet score op 0
+Zet ronde op 0
+
+ZOLANG ronde kleiner is dan 20:
+    Verhoog ronde met 1
+    Kies een willekeurig geheim getal tussen 1 en 1000
+    Zet aantal_beurten op 0
+    Zet geraden op NEE
+
+    ZOLANG aantal_beurten kleiner is dan 10 EN geraden is NEE:
+        Verhoog aantal_beurten met 1
+        Vraag de speler om een gok in te voeren
+
+        Bereken het absolute verschil tussen de gok en het geheime getal
+
+        ALS de gok gelijk is aan het geheime getal:
+            Meld: "Geraden!"
+            Verhoog score met 1
+            Zet geraden op JA
+
+        ANDERS ALS de gok kleiner is dan het geheime getal:
+            Meld: "Hoger!"
+        ANDERS:
+            Meld: "Lager!"
+
+        ALS het verschil kleiner is dan 20:
+            Meld: "Je bent heel warm!"
+        ANDERS ALS het verschil kleiner is dan 50:
+            Meld: "Je bent warm!"
+
+    EINDE BINNENSTE HERHALINGSLUS
+
+    Meld de huidige score
+
+    ALS ronde kleiner is dan 20:
+        Vraag: "Nog een getal raden? (ja/nee)"
+        ALS het antwoord NEE is:
+            Stop de buitenste lus
+
+EINDE BUITENSTE HERHALINGSLUS
+
+Meld de eindscore
+
+EINDE

@@ -7,9 +7,10 @@ def main():
     geheim = geef_willekeurig_getal(1, 1000)
 
     geraden = False
-    beurt = 1
+    beurt = 0
 
     while not geraden:
+        beurt +=1 
         gok = vraag_gok_aan_speler(ronde, beurt)
 
         geraden = controleer_gok(gok, geheim)

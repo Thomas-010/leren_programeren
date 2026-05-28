@@ -19,5 +19,4 @@ def divide(nr1: float, nr2: float) -> float:
         return nr1 / nr2
     except ZeroDivisionError:
         print("Fout: deling door nul is niet toegestaan.")
-        return float('inf')  
-
+        return None

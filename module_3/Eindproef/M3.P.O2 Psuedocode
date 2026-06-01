@@ -1,0 +1,38 @@
+START
+
+  namen_lijst = leeg
+
+  HERHAAL:
+    Vraag de gebruiker om een naam in te voeren
+
+    ALS naam al in namen_lijst staat:
+      Toon melding: "Deze naam bestaat al, kies een unieke naam"
+      Ga terug naar begin van HERHAAL
+
+    ANDERS:
+      Voeg naam toe aan namen_lijst
+
+      ALS er minder dan 3 namen in de lijst staan:
+        Ga terug naar begin van HERHAAL
+
+      ANDERS:
+        Vraag: "Wil je een naam toevoegen of lootjes trekken?"
+
+        ALS keuze is "naam toevoegen":
+          Ga terug naar begin van HERHAAL
+
+        ALS keuze is "lootjes trekken":
+          Ga verder
+
+  HERHAAL:
+    Maak een willekeurige koppeling van elke deelnemer aan een ander persoon
+    (elke deelnemer krijgt één lootje)
+
+    ALS iemand zichzelf heeft getrokken:
+      Maak de koppeling opnieuw
+
+  TOT niemand zichzelf heeft
+
+  Druk de lijst af met namen en bijbehorende lootjes
+
+EINDE

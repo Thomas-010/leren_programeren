@@ -5,7 +5,7 @@ namen_lijst = []
 while True:
     naam = input("Voer een naam in: ").strip()
 
-    if naam == namen_lijst:
+    if naam in namen_lijst:
         print("Deze naam is al ingevoerd. Probeer een andere naam.")
         continue
 
@@ -30,7 +30,7 @@ while True:
     lootjes = namen_lijst[:]
     random.shuffle(lootjes)
 
-    if all(namen_lijst[i] != lootjes[i]  for i in range(len(namen_lijst))):
+    if all(namen_lijst[i] != lootjes[i] for i in range(len(namen_lijst))):
         break 
 
 print("\n--- Uitslag Lootjes! ---")

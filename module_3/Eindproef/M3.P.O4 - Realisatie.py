@@ -33,6 +33,19 @@ while True:
     if all(namen_lijst[i] != lootjes[i] for i in range(len(namen_lijst))):
         break 
 
-print("\n--- Uitslag Lootjes! ---")
-for i in range(len(namen_lijst)):
-    print(f"{namen_lijst[i]} trekt: {lootjes[i]}")
+print("\n --- Lootjes zijn getrokken! ---")
+print("Voer je naam in om te zien wie je hebt")
+
+
+while True: 
+    naam = input("\n Voer je naam in of 'stop' om af te sluiten:")
+
+    if naam.lower() == "stop":
+        print("Tot de volgende keer!") 
+        break
+
+    if naam in namen_lijst:
+        index = namen_lijst.index(naam)
+        print(f"Jij hebt: {lootjes[index]}")
+    else:
+        print("Deze naam is niet bekend!")

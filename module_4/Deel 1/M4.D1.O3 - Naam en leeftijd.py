@@ -10,6 +10,21 @@ def vraag_gegevens():
 
     return gegevens
 
-persoon = vraag_gegevens()
+def verzamel_gegevens():
+    personen = []
 
-print(f"{persoon['naam']} is {persoon['leeftijd']} jaar.")
+    while True:
+        persoon = vraag_gegevens()
+        personen.append(persoon)
+
+        doorgaan = input("Toets enter om door te gaan of typ 'stop' om te stoppen: ")
+
+        if doorgaan.lower() == 'stop':
+            break
+
+    return personen
+
+personen = verzamel_gegevens()
+
+for persoon in personen:
+    print(f"{persoon['naam']} is {persoon['leeftijd']} jaar.")

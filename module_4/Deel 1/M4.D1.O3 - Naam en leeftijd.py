@@ -1,11 +1,13 @@
 def vraag_gegevens():
     naam = input("Wat is je naam? ")
     leeftijd = input("Wat is je leeftijd? ")
+    woontplaats = input("Wat is je woonplaats? ")
 
 
     gegevens = {
         "naam": naam,
-        "leeftijd": leeftijd
+        "leeftijd": leeftijd,
+        "woontplaats": woontplaats
     }
 
     return gegevens
@@ -27,4 +29,4 @@ def verzamel_gegevens():
 personen = verzamel_gegevens()
 
 for persoon in personen:
-    print(f"{persoon['naam']} is {persoon['leeftijd']} jaar.")
+    print(f"{persoon['naam']}, die in {persoon['woontplaats']} woont, is {persoon['leeftijd']} jaar.")

@@ -33,5 +33,13 @@ expected = False
 result = is_prime(19872496)
 test('TEST: is_prime(19872496)',expected, result)
 
+expected = [2, 3, 5, 7, 11]
+result = get_first_primes(5)
+test('TEST: get_first_primes(5)', expected, result)
+
+expected = [2, 3, 5]
+result = get_first_primes(3)
+test('TEST: get_first_primes(3)', expected, result)
+
 if __name__ == "__main__":
     report()

@@ -26,8 +26,8 @@ def ber_gemiddelde_woordlenge(zin:str) -> float:
     woorden = zin.split()
     
     totaal_aant_tekens = 0
-    for snorkelwagen in woorden:
-        totaal_aant_tekens += len(snorkelwagen)
+    for letters in woorden:
+        totaal_aant_tekens += len(letters)
 
     gemiddelde_lengte = totaal_aant_tekens / len(woorden)
     return gemiddelde_lengte

@@ -6,7 +6,7 @@ personen = verzamel_gegevens()
 for persoon in personen:
     naam_colored = termcolor.colored(persoon['name'], 'green')
     stad_colored = termcolor.colored(persoon['city'], 'yellow')
-#   leeftijd_colored = termcolor.colored(str(persoon['age']), 'yellow')
+
     
     if persoon['is_volwassen']:
         jaren_volwassen = int(persoon['age']) - 18

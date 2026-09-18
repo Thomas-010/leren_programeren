@@ -49,3 +49,6 @@ def get_primes_until(end: int) -> list:
             priemgetal.append(nummer)
 
     return priemgetal
+
+
+print (get_primes_until(100))

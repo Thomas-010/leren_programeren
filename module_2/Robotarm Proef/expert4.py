@@ -8,7 +8,7 @@ robotArm = RobotArm(challenges[4],0)
 
 # your code starts here:
 
-robotArm.speed = 2
+robotArm.speed = 5
 
 for i in range(6):
     for blok in range(6):

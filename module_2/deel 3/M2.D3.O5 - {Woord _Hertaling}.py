@@ -23,7 +23,7 @@ def vertaal(tekst):
     return " ".join(nieuwwoord)
 
 tekst = input ("Wat voor verhaaltje wil je vertalen:\n")
-tekst = "kat muur regen boek, stoel raam lamp!"
+#tekst = "kat muur regen boek, stoel raam lamp!"
     
 output = vertaal(tekst)
 print("\nVertaald")

@@ -5,7 +5,6 @@ PRIJS_CHAMPAGNE = 12.30
 DRANKJES = ('cola', 'bier', 'champagne')
 VIP_LIST = ('jeroen', 'jouke', 'rudi')
 
-#bouw hieronder de flowchart na
 
 bandje = "Je krijgt van mij een {kleur} bandje"
 stempel = "Je krijgt van mij een stempel"

@@ -7,7 +7,7 @@ from challenges.expert import challenges
 robotArm = RobotArm(challenges[2],0)
 
 # your code starts here:
-robotArm.speed = 2
+robotArm.speed = 1000000000
 def stopwanneerklaar():
     if robotArm._solutionDone:
         exit()

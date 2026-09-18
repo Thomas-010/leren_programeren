@@ -11,21 +11,18 @@ def stopwanneerklaar():
     if robotArm._solutionDone:
         exit()
 
-robotArm.speed = 2
+robotArm.speed = 0.5
 robotArm.moveRight()
 
 tellen = {}
 
 for i in range(1, 10):
-    for x in range(1):
-        if robotArm.stackEmpty():
-            break
-        robotArm.grab()
-        kleur = robotArm.scan()
-        tellen[kleur] = tellen.get(kleur, 0) + 1
-        robotArm.drop()
-        stopwanneerklaar()
-    
+    if robotArm.stackEmpty():
+        break
+    robotArm.grab()
+    kleur = robotArm.scan()
+    tellen[kleur] = tellen.get(kleur, 0) + 1
+    robotArm.drop()
     if i < 9:
         robotArm.moveRight()
 

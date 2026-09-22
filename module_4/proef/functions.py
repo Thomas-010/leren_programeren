@@ -5,19 +5,25 @@ from config import *
 ##################### O03 #####################
 
 def copper2silver(amount:int) -> float:
-    pass
-
+    return amount / 10
+    
 def silver2gold(amount:int) -> float:
-    pass
+    return amount / 5
 
 def copper2gold(amount:int) -> float:
-    pass
+    return silver2gold(copper2silver(amount))
 
 def platinum2gold(amount:int) -> float:
-    pass
+    return amount * 25
 
 def getPersonCashInGold(personCash:dict) -> float:
-    pass
+    totalGold = (
+        copper2gold(personCash.get('copper', 0))
+        + silver2gold(personCash.get('silver', 0))
+        + personCash.get('gold', 0)
+        + platinum2gold(personCash.get('platinum', 0))
+    )
+    return round(totalGold, 2)
 
 ##################### O05 #####################
 

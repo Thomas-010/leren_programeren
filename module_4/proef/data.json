@@ -1,9 +1,9 @@
 {
   "constants": {
-    "JOURNEY_IN_DAYS": 0
+    "JOURNEY_IN_DAYS": 11
   },
   "mainCharacter": {
-    "name": "Bob",
+    "name": "Thomas",
     "ownsHorse": true,
     "adventuring": true,
     "cash": {

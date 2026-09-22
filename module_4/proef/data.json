@@ -1,0 +1,20 @@
+{
+  "constants": {
+    "JOURNEY_IN_DAYS": 0
+  },
+  "mainCharacter": {
+    "name": "Bob",
+    "ownsHorse": true,
+    "adventuring": true,
+    "cash": {
+      "platinum": 0,
+      "gold": 1,
+      "silver": 7,
+      "copper": 5
+    }
+  },
+  "friends": [],
+  "adventurerGear": [],
+  "investors": [],
+  "treasure": []
+}

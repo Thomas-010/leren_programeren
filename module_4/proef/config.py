@@ -16,3 +16,5 @@ treasure = data['treasure']
 constants = data["constants"]
 
 JOURNEY_IN_DAYS = constants['JOURNEY_IN_DAYS']
+COST_FOOD_HUMAN_COPPER_PER_DAY = constants['COST_FOOD_HUMAN_COPPER_PER_DAY']
+COST_FOOD_HORSE_COPPER_PER_DAY = constants['COST_FOOD_HORSE_COPPER_PER_DAY']

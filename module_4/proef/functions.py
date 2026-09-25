@@ -1,6 +1,7 @@
 import time
 from termcolor import colored
 from config import *
+import math
 
 ##################### O03 #####################
 
@@ -34,35 +35,63 @@ def getJourneyFoodCostsInGold(people:int, horses:int) -> float:
 ##################### O06 #####################
 
 def getFromListByKeyIs(list:list, key:str, value:any) -> list:
-    pass
+    result = []
+    for item in list:
+        if item.get(key) == value:
+            result.append(item)
+    return result
 
 def getAdventuringPeople(people:list) -> list:
-    pass
+    return getFromListByKeyIs(people, 'adventuring', True)
 
 def getShareWithFriends(friends:list) -> list:
-    pass
+    return getFromListByKeyIs(friends, 'shareWith', True)
 
 def getAdventuringFriends(friends:list) -> list:
-    pass
+    sharedFriends = getShareWithFriends(friends)
+    return getAdventuringPeople(sharedFriends)
 
 ##################### O07 #####################
 
 def getNumberOfHorsesNeeded(people:int) -> int:
-    pass
+    return math.ceil(people / 2)
 
 def getNumberOfTentsNeeded(people:int) -> int:
-    pass
+    return math.ceil(people / 3)
 
 def getTotalRentalCost(horses:int, tents:int) -> float:
-    pass
-
+    weeksNeeded = math.ceil(JOURNEY_IN_DAYS / 7)
+    horseCostInGold = silver2gold(horses * COST_HORSE_SILVER_PER_DAY * JOURNEY_IN_DAYS)
+    tentCostInGold = tents * COST_TENT_GOLD_PER_WEEK * weeksNeeded
+    return round(horseCostInGold + tentCostInGold, 2)
 ##################### O08 #####################
 
 def getItemsAsText(items:list) -> str:
-    pass
+    tekst = [f"{item['amount']}{item['unit']} {item['name']}" for item in items]
+    if len(tekst) == 0:
+        return ''
+    if len(tekst) == 1:
+        return tekst[0]
+    return ', '.join(tekst[:-1]) + ' & ' + tekst[-1]
 
 def getItemsValueInGold(items:list) -> float:
-    pass
+    total = 0.0
+    for item in items:
+        priceAmount = item['price']['amount']
+        priceType = item['price']['type']
+        itemTotal = item['amount'] * priceAmount
+
+        if priceType == 'copper':
+            itemTotal = copper2gold(itemTotal)
+        elif priceType == 'silver':
+            itemTotal = silver2gold(itemTotal)
+        elif priceType == 'platinum':
+            itemTotal = platinum2gold(itemTotal)
+
+        total += itemTotal
+    return round(total, 2)
+
+      
 
 ##################### O09 #####################
 

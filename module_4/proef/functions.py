@@ -104,21 +104,46 @@ def getCashInGoldFromPeople(people:list) -> float:
 ##################### O10 #####################
 
 def getInterestingInvestors(investors:list) -> list:
-    pass
+    return [investor for investor in investors if investor['profitReturn'] <= 10]
+
 
 def getAdventuringInvestors(investors:list) -> list:
-    pass
+    interestingInvestors = getInterestingInvestors(investors)
+    return getFromListByKeyIs(interestingInvestors, 'adventuring', True)
 
 def getTotalInvestorsCosts(investors:list, gear:list) -> float:
-    pass
+    adventuringInvestors = getAdventuringInvestors(investors)
+    count = len(adventuringInvestors)
+
+    if count == 0 or len(gear) == 0:
+        return 0.0
+
+    foodCostPerInvestor = getJourneyFoodCostsInGold(1, 1)
+    rentalCostPerInvestor = getTotalRentalCost(1, 1)
+    gearCostPerInvestor = getItemsValueInGold(gear)
+
+    totalPerInvestor = foodCostPerInvestor + rentalCostPerInvestor + gearCostPerInvestor
+    return round(totalPerInvestor * count, 2)
 
 ##################### O11 #####################
 
 def getMaxAmountOfNightsInInn(leftoverGold:float, people:int, horses:int) -> int:
-    pass
+    costPerNight = getJourneyInnCostsInGold(1, people, horses)
+
+    if costPerNight <= 0:
+        return 0
+
+    maxAffordable = math.floor(leftoverGold / costPerNight)
+    maxAvailableNights = JOURNEY_IN_DAYS - 1
+
+    return max(0, min(maxAffordable, maxAvailableNights))
+
 
 def getJourneyInnCostsInGold(nightsInInn:int, people:int, horses:int) -> float:
-    pass
+    silverCost = people * COST_INN_HUMAN_SILVER_PER_NIGHT
+    copperCost = horses * COST_INN_HORSE_COPPER_PER_NIGHT
+    costPerNight = silver2gold(silverCost) + copper2gold(copperCost)
+    return round(costPerNight * nightsInInn, 2)
 
 ##################### O13 #####################
 

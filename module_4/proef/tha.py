@@ -250,7 +250,7 @@ if adventureStarted:
                 elif adventurerGoldCut <= 0:
                     print_colorvars('Helaas bleef er geen goud over om te verdelen ...')
                 elif len(party) == 1:
-                    earnings = getEarnigs(profitGold, mainCharacter, friends, investors)
+                    earnings = getEarnings(profitGold, mainCharacter, friends, investors)
                     personalProfit = earnings[0]['end'] - earnings[0]['start']
                     if earnings != None:
                         print_colorvars('Dat betekent dat {} eerst {} goud hand en nu {} goud heeft, wat {} goud winst is.', [earnings[0]['name'], earnings[0]['start'], earnings[0]['end'], personalProfit])
@@ -263,7 +263,7 @@ if adventureStarted:
                     else:
                         print_colorvars('Dat krijgt ieder van de {} avonturiers {} goud.', [adventurerGoldCut, len(party)])
 
-                    earnings = getEarnigs(profitGold, mainCharacter, friends, investors)
+                    earnings = getEarnings(profitGold, mainCharacter, friends, investors)
 
                     if earnings == None:
                         print_colorvars('Het enige wat nog te doen is, is de balans op maken.')

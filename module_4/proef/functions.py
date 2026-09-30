@@ -162,8 +162,20 @@ def getAdventurerCut(profitGold:float, investorsCuts:list, fellowship:int) -> fl
 
 ##################### O14 #####################
 
-def getEarnigs(profitGold:float, mainCharacter:dict, friends:list, investors:list) -> list:
-    pass
+def getEarnings(profitGold:float, mainCharacter:dict, friends:list, investors:list) -> list:
+    startGold = getPersonCashInGold(mainCharacter['cash'])
+
+    adventuringFriends = getAdventuringFriends(friends)
+    adventuringInvestors = getAdventuringInvestors(investors)
+    fellowshipSize = 1 + len(adventuringFriends) + len(adventuringInvestors)
+
+    investorsCuts = getInvestorsCuts(profitGold, investors)
+    adventurerCut = getAdventurerCut(profitGold, investorsCuts, fellowshipSize)
+
+    giftGold = len(adventuringFriends) * 10
+    endGold = round(startGold + adventurerCut + giftGold, 2)
+
+    return [{'name': mainCharacter['name'], 'start': startGold, 'end': endGold}]
 
 ##################### view functions #####################
 

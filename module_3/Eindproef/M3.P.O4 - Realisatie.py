@@ -3,7 +3,7 @@ import random
 namen_lijst = []
 
 while True:
-    naam = input("Voer een naam in: ").strip()
+    naam = input("Voer een naam in: ").strip().lower()
 
     if naam in namen_lijst:
         print("Deze naam is al ingevoerd. Probeer een andere naam.")
@@ -38,7 +38,7 @@ print("Voer je naam in om te zien wie je hebt")
 
 
 while True: 
-    naam = input("\n Voer je naam in of 'stop' om af te sluiten:")
+    naam = input("\n Voer je naam in of 'stop' om af te sluiten:").strip().lower()
 
     if naam.lower() == "stop":
         print("Tot de volgende keer!") 

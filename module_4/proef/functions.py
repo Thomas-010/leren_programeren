@@ -32,6 +32,7 @@ def getJourneyFoodCostsInGold(people:int, horses:int) -> float:
     totalCopperPerDay = (people * COST_FOOD_HUMAN_COPPER_PER_DAY) + (horses * COST_FOOD_HORSE_COPPER_PER_DAY)
     totalCopper = totalCopperPerDay * JOURNEY_IN_DAYS
     return round(copper2gold(totalCopper), 2)
+
 ##################### O06 #####################
 
 def getFromListByKeyIs(list:list, key:str, value:any) -> list:
@@ -73,6 +74,7 @@ def getItemsAsText(items:list) -> str:
     if len(tekst) == 1:
         return tekst[0]
     return ', '.join(tekst[:-1]) + ' & ' + tekst[-1]
+
 
 def getItemsValueInGold(items:list) -> float:
     total = 0.0

@@ -3,6 +3,38 @@ import random, string
 speSymbolen = "@#$%&_?"
 
 
+def test_wachtwoord(ww) -> bool:
+    if len(ww) < 24:
+        print('te kort')
+        return False
+    if not 1 < len(list(filter(lambda a: a in string.ascii_uppercase, list(ww)))) < 7:
+        print('aantal hoofdletters klopt niet!')
+        return False
+    if ww[11] in string.ascii_uppercase or ww[12] in string.ascii_uppercase:
+        print('In het midden geen hoofdletters')
+        return False
+    if len(list(filter(lambda a: a in string.ascii_lowercase, list(ww)))) < 8:
+        print('te weinig kleine letters')
+        return False
+    if ww[-1] in string.ascii_lowercase:
+        print('Laatste pos niet juist')
+        return False
+    if len(list(filter(lambda a: a in '@#$%&_?', list(ww)))) != 3:
+        print('te weinig specials')
+        return False
+    if ww[0] in '@#$%&_?' or ww[-1] in '@#$%&_?':
+        print('special op end')
+        return False
+    if not 3 < len(list(filter(lambda a: a.isdigit(), list(ww)))) < 8:
+        print('te weinig getallen')
+        return False
+    if ww[0].isdigit() or ww[1].isdigit() or ww[2].isdigit():
+        print('Eerste drie karakters staat een getal')
+        return False
+    return True
+
+
+
 def genereer_wachtwoord():
     aantal_hoofdletters = random.randint(2, 6)
     aantal_specialech = 3
@@ -35,37 +67,6 @@ def genereer_wachtwoord():
 
         if geldig:
             return "".join(tekens)
-
-
-def test_wachtwoord(ww) -> bool:
-    if len(ww) < 24:
-        print('te kort')
-        return False
-    if not 1 < len(list(filter(lambda a: a in string.ascii_uppercase, list(ww)))) < 7:
-        print('aantal hoofdletters klopt niet!')
-        return False
-    if ww[11] in string.ascii_uppercase or ww[12] in string.ascii_uppercase:
-        print('In het midden geen hoofdletters')
-        return False
-    if len(list(filter(lambda a: a in string.ascii_lowercase, list(ww)))) < 8:
-        print('te weinig kleine letters')
-        return False
-    if ww[-1] in string.ascii_lowercase:
-        print('Laatste pos niet juist')
-        return False
-    if len(list(filter(lambda a: a in '@#$%&_?', list(ww)))) != 3:
-        print('te weinig specials')
-        return False
-    if ww[0] in '@#$%&_?' or ww[-1] in '@#$%&_?':
-        print('special op end')
-        return False
-    if not 3 < len(list(filter(lambda a: a.isdigit(), list(ww)))) < 8:
-        print('te weinig getallen')
-        return False
-    if ww[0].isdigit() or ww[1].isdigit() or ww[2].isdigit():
-        print('Eerste drie karakters staat een getal')
-        return False
-    return True
 
 
 for i in range(500):

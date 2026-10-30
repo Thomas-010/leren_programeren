@@ -7,8 +7,24 @@ from challenges.master import challenges
 robotArm = RobotArm(challenges[1],0)
 
 # your code starts here:
+colors = []
 
+for stack in range(10):
+    robotArm.grab()
+    colors.append(robotArm.scan())
+    robotArm.drop()
+    if stack < 9:
+        robotArm.moveRight()
 
+differentStack = next(
+    index for index, color in enumerate(colors)
+    if colors.count(color) == 1
+)
+
+for _ in range(9 - differentStack):
+    robotArm.moveLeft()
+
+robotArm.grab()
 
 # your code ends here
 

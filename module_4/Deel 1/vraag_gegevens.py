@@ -14,6 +14,7 @@ def vraag_gegevens():
     
     return gegevens
 
+print(vraag_gegevens())
 
 def verzamel_gegevens():
     personen = []

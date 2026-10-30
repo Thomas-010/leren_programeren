@@ -36,6 +36,7 @@ def genereer_wachtwoord():
         if is_geldig(tekens):
             return "".join(tekens)
         
+#Verbetering krijg ik mee: Volgende keer een aparte functie maken voor het controleren van de geldigheid van het wachtwoord.
 
 
 nieuw_wachtwoord = genereer_wachtwoord()

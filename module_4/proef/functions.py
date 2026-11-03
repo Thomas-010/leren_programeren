@@ -164,21 +164,38 @@ def getAdventurerCut(profitGold:float, investorsCuts:list, fellowship:int) -> fl
 
 ##################### O14 #####################
 
-def getEarnings(profitGold:float, mainCharacter:dict, friends:list, investors:list) -> list:
-    startGold = getPersonCashInGold(mainCharacter['cash'])
-
+def getEarnigs(profitGold:float, mainCharacter:dict, friends:list, investors:list) -> list:
+    people = [mainCharacter] + friends + investors
+    earnigs = []
+    
     adventuringFriends = getAdventuringFriends(friends)
+    interestingInvestors = getInterestingInvestors(investors)
     adventuringInvestors = getAdventuringInvestors(investors)
-    fellowshipSize = 1 + len(adventuringFriends) + len(adventuringInvestors)
-
     investorsCuts = getInvestorsCuts(profitGold, investors)
-    adventurerCut = getAdventurerCut(profitGold, investorsCuts, fellowshipSize)
 
-    giftGold = len(adventuringFriends) * 10
-    endGold = round(startGold + adventurerCut + giftGold, 2)
+    fellowshipSize = 1 + len(adventuringFriends) + len(adventuringInvestors)
+    goldCut = getAdventurerCut(profitGold, investorsCuts, fellowshipSize)
 
-    return [{'name': mainCharacter['name'], 'start': startGold, 'end': endGold}]
+    for person in people:
+        start = getPersonCashInGold(person['cash'])
+        end = start
 
+        if person == mainCharacter:
+            end += goldCut + len(adventuringFriends) * 10
+        elif person in adventuringFriends:
+            end += goldCut - 10
+        elif person in interestingInvestors:
+            end += round(profitGold * person['profitReturn'] / 100, 2)
+            if person in adventuringInvestors:
+                end += goldCut
+
+        earnigs.append({
+            'name'  : person['name'],
+            'start' : start,
+            'end'   : end,
+        })
+
+    return earnigs
 ##################### view functions #####################
 
 def print_colorvars(txt:str='{}', vars:list=[], color:str='yellow') -> None:

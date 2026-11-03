@@ -46,6 +46,8 @@ class Tetris(object):
 		pygame.key.set_repeat(250,25)
 
 		self._config = config
+		self.delay = config['delay']
+		self.lines_cleared = 0
 		self.width = config['cell_size']*config['cols']
 		self.height = config['cell_size']*config['rows']
 		self.gameover = True
@@ -60,6 +62,9 @@ class Tetris(object):
 			self.new_board()
 			self.new_stone()
 			self.gameover = False
+			self.lines_cleared = 0
+			self.delay = self._config['delay']
+			pygame.time.set_timer(pygame.USEREVENT+1, self.delay)
 
 	def new_board(self) -> list:
 		self.board = [ [ 0 for x in range(self._config['cols']) ]
@@ -152,6 +157,7 @@ class Tetris(object):
 	def remove_row(self, row:int) -> list:
 		del self.board[row]
 		return [[0 for i in range(self._config['cols'])]] + self.board
+		
 	
 	def toggle_pause(self) -> None:
 		self.paused = not self.paused

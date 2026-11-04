@@ -100,6 +100,7 @@ class Tetris(object):
 					for i, row in enumerate(self.board[:-1]):
 						if 0 not in row:
 							self.board = self.remove_row(i)
+							self.speed_up()
 							break
 					else:
 						break
@@ -120,6 +121,7 @@ class Tetris(object):
 	
 	def quit(self) -> None:
 		self.center_msg("Exiting...")
+
 		pygame.display.update()
 		sys.exit()
 
@@ -157,7 +159,12 @@ class Tetris(object):
 	def remove_row(self, row:int) -> list:
 		del self.board[row]
 		return [[0 for i in range(self._config['cols'])]] + self.board
-		
+
+	def speed_up(self) -> None:
+		self.lines_cleared += 1
+		if self.lines_cleared % 5 == 0:
+			self.delay = max(50, int(self.delay * 0.9))
+			pygame.time.set_timer(pygame.USEREVENT+1, self.delay)
 	
 	def toggle_pause(self) -> None:
 		self.paused = not self.paused
@@ -187,12 +194,12 @@ class Tetris(object):
 		self.gameover = False
 		self.paused = False
 		
-		pygame.time.set_timer(pygame.USEREVENT+1, self._config['delay'])
+		pygame.time.set_timer(pygame.USEREVENT+1, self.delay)
 		dont_burn_my_cpu = pygame.time.Clock()
 		while 1:
 			self.screen.fill((0,0,0))
 			if self.gameover:
-				self.center_msg("Game Over!\nPress space to continue")
+				self.center_msg(f"Game Over!\nLines: {self.lines_cleared}\nPress space to continue")
 			else:
 				if self.paused:
 					self.center_msg("Paused")

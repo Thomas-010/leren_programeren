@@ -17,20 +17,19 @@ for stapel in range(10):
         robotarm.moveRight()
 
 afwijkendeKleur = None
-for kleur in kleuren:
+afwijkendePlek = None
+
+for plek in range(10):
+    kleur = kleuren[plek]
     if kleuren.count(kleur) == 1:
         afwijkendeKleur = kleur
+        afwijkendePlek = plek
         break
 
-for stapel in range(9):
+for stapel in range(9 - afwijkendePlek):
     robotarm.moveLeft()
 
-for stapel in range(10):
-    robotarm.grab()
-    if robotarm.scan() == afwijkendeKleur:
-        break
-    robotarm.drop()
-    robotarm.moveRight()
+robotarm.grab()
 
 # your code ends here
 

@@ -1,7 +1,8 @@
 pizzas = {
     "small": 6.50,
     "medium": 9.30,
-    "large": 11.10
+    "large": 11.10,
+    "XLlarge": 20
 }
 
 maten = list(pizzas)
@@ -16,9 +17,9 @@ def vraag_aantal(maat):
         except ValueError:
             print("Dit is geen heel nummer!")
 
+
 def print_regel(tekst, bedrag):
     print(f"{tekst}\t{bedrag:.2f}")
-
 
 def print_pizzaregels(aantallen):
     totaal = 0

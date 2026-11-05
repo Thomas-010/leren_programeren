@@ -10,11 +10,14 @@ robotarm = RobotArm(challenges[3],0)
 bestemmingen = [0, 1, 8, 9]
 kleuren = []
 
-for bron in range(3, 7):
-    while robotarm.stackIndex() < bron:
+def beweeg_naar(doel):
+    while robotarm.stackIndex() < doel:
         robotarm.moveRight()
-    while robotarm.stackIndex() > bron:
+    while robotarm.stackIndex() > doel:
         robotarm.moveLeft()
+
+for i in range(3, 7):
+    beweeg_naar(i)
 
     while not robotarm.stackEmpty():
         robotarm.grab()
@@ -25,17 +28,11 @@ for bron in range(3, 7):
 
         bestemming = bestemmingen[kleuren.index(kleur)]
 
-        while robotarm.stackIndex() < bestemming:
-            robotarm.moveRight()
-        while robotarm.stackIndex() > bestemming:
-            robotarm.moveLeft()
-
+        beweeg_naar(bestemming)
         robotarm.drop()
+        beweeg_naar(i)
 
-        while robotarm.stackIndex() < bron:
-            robotarm.moveRight()
-        while robotarm.stackIndex() > bron:
-            robotarm.moveLeft()
+
 
 # your code ends here
 

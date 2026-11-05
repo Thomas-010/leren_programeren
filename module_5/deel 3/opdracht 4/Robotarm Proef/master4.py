@@ -7,43 +7,51 @@ from challenges.master import challenges
 robotarm = RobotArm(challenges[4],0)
 
 # your code starts here:
-color = []
+kleuren = []
 
-for i in range(4):
+for stapel in range(4):
     robotarm.grab()
-    color.append(robotarm.scan())
+    kleuren.append(robotarm.scan())
+
     robotarm.moveRight()
-    for _ in range(i):
+    for stap in range(stapel):
         robotarm.moveRight()
-    robotarm.drop()
-    for _ in range(1 + i):
-        robotarm.moveLeft()
-
-for i in range(3, -1, -1):
-    for _ in range(1 + i):
-        robotarm.moveRight()
-    robotarm.grab()
-    for _ in range(1 + i):
-        robotarm.moveLeft()
     robotarm.drop()
 
-losse_kleuren = []
-for i in range(4):
-    while robotarm.stackIndex() < 6 + i:
+    for stap in range(stapel + 1):
+        robotarm.moveLeft()
+
+for stapel in range(3, -1, -1):
+    for stap in range(stapel + 1):
         robotarm.moveRight()
     robotarm.grab()
-    losse_kleuren.append(robotarm.scan())
+
+    for stap in range(stapel + 1):
+        robotarm.moveLeft()
     robotarm.drop()
+
+losseKleuren = []
+for stapel in range(4):
+    while robotarm.stackIndex() < 6 + stapel:
+        robotarm.moveRight()
+
+    robotarm.grab()
+    losseKleuren.append(robotarm.scan())
+    robotarm.drop()
+
     while robotarm.stackIndex() > 0:
         robotarm.moveLeft()
 
-for color in reversed(color):
-    bronstapel = 6 + losse_kleuren.index(color)
-    while robotarm.stackIndex() < bronstapel:
+for kleur in reversed(kleuren):
+    bronStapel = 6 + losseKleuren.index(kleur)
+
+    while robotarm.stackIndex() < bronStapel:
         robotarm.moveRight()
-    while robotarm.stackIndex() > bronstapel:
+    while robotarm.stackIndex() > bronStapel:
         robotarm.moveLeft()
+
     robotarm.grab()
+
     while robotarm.stackIndex() > 1:
         robotarm.moveLeft()
     robotarm.drop()

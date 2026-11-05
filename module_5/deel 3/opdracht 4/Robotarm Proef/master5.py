@@ -7,26 +7,39 @@ from challenges.master import challenges
 robotarm = RobotArm(challenges[5],0)
 
 # your code starts here:
-color = []
+kleuren = []
 
-for i in range(10):
+for stapel in range(10):
     robotarm.grab()
-    color.append(robotarm.scan())
+    kleuren.append(robotarm.scan())
     robotarm.drop()
-    if i < 9:
+    if stapel < 9:
         robotarm.moveRight()
 
-dubbelkleur = next(kleur for kleur in color if color.count(kleur) == 2)
-plekken = [i for i, kleur in enumerate(color) if kleur == dubbelkleur]
+dubbeleKleur = None
+for kleur in kleuren:
+    if kleuren.count(kleur) == 2:
+        dubbeleKleur = kleur
+        break
 
-for _ in range(9 - plekken[1]):
+eerstePlek = None
+tweedePlek = None
+for stapel in range(10):
+    if kleuren[stapel] == dubbeleKleur:
+        if eerstePlek is None:
+            eerstePlek = stapel
+        else:
+            tweedePlek = stapel
+
+for stapel in range(9):
     robotarm.moveLeft()
 
+for stapel in range(tweedePlek):
+    robotarm.moveRight()
 robotarm.grab()
 
-for _ in range(plekken[1] - plekken[0]):
+for stap in range(tweedePlek - eerstePlek):
     robotarm.moveLeft()
-
 robotarm.drop()
 
 # your code ends here

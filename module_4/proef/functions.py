@@ -15,7 +15,7 @@ def copper2gold(amount:int) -> float:
     return silver2gold(copper2silver(amount))
 
 def platinum2gold(amount:int) -> float:
-    return amount * 25
+    return amount * 251
 
 def getPersonCashInGold(personCash:dict) -> float:
     totalGold = (

@@ -4,47 +4,47 @@ from RobotArm import RobotArm
 from challenges.master import challenges
 
 # load the robotarm with a challenge on a level (max 3)
-robotArm = RobotArm(challenges[3],0)
+robotarm = RobotArm(challenges[3],0)
 
 # your code starts here:
-colors = []
-destinations = [0, 1, 8, 9]
+bestemmingen = [0, 1, 8, 9]
+kleuren = []
 
-for i in range(3, 7):
-    while robotArm.stackIndex() < i:
-        robotArm.moveRight()
-    while robotArm.stackIndex() > i:
-        robotArm.moveLeft()
+for bron in range(3, 7):
+    while robotarm.stackIndex() < bron:
+        robotarm.moveRight()
+    while robotarm.stackIndex() > bron:
+        robotarm.moveLeft()
 
-    while not robotArm.stackEmpty():
-        robotArm.grab()
-        color = robotArm.scan()
+    while not robotarm.stackEmpty():
+        robotarm.grab()
+        kleur = robotarm.scan()
 
-        if color not in colors:
-            colors.append(color)
+        if kleur not in kleuren:
+            kleuren.append(kleur)
 
-        destination = destinations[colors.index(color)]
+        bestemming = bestemmingen[kleuren.index(kleur)]
 
-        while robotArm.stackIndex() < destination:
-            robotArm.moveRight()
-        while robotArm.stackIndex() > destination:
-            robotArm.moveLeft()
+        while robotarm.stackIndex() < bestemming:
+            robotarm.moveRight()
+        while robotarm.stackIndex() > bestemming:
+            robotarm.moveLeft()
 
-        robotArm.drop()
+        robotarm.drop()
 
-        while robotArm.stackIndex() < i:
-            robotArm.moveRight()
-        while robotArm.stackIndex() > i:
-            robotArm.moveLeft()
+        while robotarm.stackIndex() < bron:
+            robotarm.moveRight()
+        while robotarm.stackIndex() > bron:
+            robotarm.moveLeft()
 
 # your code ends here
 
 # report the results of the mission
-robotArm.report()
+robotarm.report()
 
 # want help? Unlock code below!
-robotArm.help()
+robotarm.help()
 
 # want to inspect a solution? Unlock code below!
-# robotArm.showSolution()
-# robotArm.wait()
+# robotarm.showSolution()
+# robotarm.wait()

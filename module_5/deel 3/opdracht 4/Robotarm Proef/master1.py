@@ -4,36 +4,42 @@ from RobotArm import RobotArm
 from challenges.master import challenges
 
 # load the robotarm with a challenge on a level (max 3)
-robotArm = RobotArm(challenges[1],0)
+robotarm = RobotArm(challenges[1],0)
 
 # your code starts here:
-colors = []
+kleuren = []
 
-for stack in range(10):
-    robotArm.grab()
-    colors.append(robotArm.scan())
-    robotArm.drop()
-    if stack < 9:
-        robotArm.moveRight()
+for stapel in range(10):
+    robotarm.grab()
+    kleuren.append(robotarm.scan())
+    robotarm.drop()
+    if stapel < 9:
+        robotarm.moveRight()
 
-differentStack = next(
-    index for index, color in enumerate(colors)
-    if colors.count(color) == 1
-)
+afwijkendeKleur = None
+for kleur in kleuren:
+    if kleuren.count(kleur) == 1:
+        afwijkendeKleur = kleur
+        break
 
-for _ in range(9 - differentStack):
-    robotArm.moveLeft()
+for stapel in range(9):
+    robotarm.moveLeft()
 
-robotArm.grab()
+for stapel in range(10):
+    robotarm.grab()
+    if robotarm.scan() == afwijkendeKleur:
+        break
+    robotarm.drop()
+    robotarm.moveRight()
 
 # your code ends here
 
 # report the results of the mission
-robotArm.report()
+robotarm.report()
 
 # want help? Unlock code below!
-robotArm.help()
+robotarm.help()
 
 # want to inspect a solution? Unlock code below!
-# robotArm.showSolution()
-# robotArm.wait()
+# robotarm.showSolution()
+# robotarm.wait()

@@ -4,50 +4,45 @@ from RobotArm import RobotArm
 from challenges.master import challenges
 
 # load the robotarm with a challenge on a level (max 3)
-robotArm = RobotArm(challenges[2],0)
+robotarm = RobotArm(challenges[2],0)
 
 # your code starts here:
-colors = []
+kleuren = []
 
-for i in range(4):
-    robotArm.moveRight()
+for stapel in range(4):
+    robotarm.moveRight()
 
-for d in range(6):
-    robotArm.grab()
-    colors.append(robotArm.scan())
-    robotArm.drop()
-    if robotArm.stackIndex() < 9:
-        robotArm.moveRight()
+for stapel in range(6):
+    robotarm.grab()
+    kleuren.append(robotarm.scan())
+    robotarm.drop()
+    if stapel < 5:
+        robotarm.moveRight()
 
-orderedColors = sorted(set(colors), key=colors.count, reverse=True)
+for stapel in range(9):
+    robotarm.moveLeft()
 
-for i in range(9):
-    robotArm.moveLeft()
+geordendeKleuren = sorted(set(kleuren), key=kleuren.count, reverse=True)
 
-for destination, color in enumerate(orderedColors):
-    for source in range(4, 10):
-        if colors[source - 4] == color:
-            while robotArm.stackIndex() < source:
-                robotArm.moveRight()
-            while robotArm.stackIndex() > source:
-                robotArm.moveLeft()
+for bestemming in range(3):
+    for bron in range(6):
+        if kleuren[bron] == geordendeKleuren[bestemming]:
+            for stap in range(4 + bron):
+                robotarm.moveRight()
+            robotarm.grab()
 
-            robotArm.grab()
-
-            while robotArm.stackIndex() > destination:
-                robotArm.moveLeft()
-
-            robotArm.drop()
-
+            for stap in range(4 + bron - bestemming):
+                robotarm.moveLeft()
+            robotarm.drop()
 
 # your code ends here
 
 # report the results of the mission
-robotArm.report()
+robotarm.report()
 
 # want help? Unlock code below!
-robotArm.help()
+robotarm.help()
 
 # want to inspect a solution? Unlock code below!
-# robotArm.showSolution()
-# robotArm.wait()
+# robotarm.showSolution()
+# robotarm.wait()

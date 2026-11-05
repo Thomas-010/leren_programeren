@@ -27,11 +27,13 @@ geordendeKleuren = sorted(set(kleuren), key=kleuren.count, reverse=True)
 for bestemming in range(3):
     for bron in range(6):
         if kleuren[bron] == geordendeKleuren[bestemming]:
-            for stap in range(4 + bron):
+            while robotarm.stackIndex() < 4 + bron:
                 robotarm.moveRight()
+            while robotarm.stackIndex() > 4 + bron:
+                robotarm.moveLeft()
             robotarm.grab()
 
-            for stap in range(4 + bron - bestemming):
+            while robotarm.stackIndex() > bestemming:
                 robotarm.moveLeft()
             robotarm.drop()
 

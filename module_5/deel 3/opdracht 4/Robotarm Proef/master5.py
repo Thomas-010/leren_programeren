@@ -20,8 +20,7 @@ dubbeleKleur = None
 for kleur in kleuren:
     if kleuren.count(kleur) == 2:
         dubbeleKleur = kleur
-        break
-
+        
 eerstePlek = None
 tweedePlek = None
 for stapel in range(10):

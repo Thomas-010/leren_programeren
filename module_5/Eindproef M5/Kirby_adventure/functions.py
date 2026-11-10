@@ -1,9 +1,9 @@
 from termcolor import colored
 from data import ROOD, GROEN, KEUZES
 
-def vraag_keuze(vraag, opties):
+def vraag_keuze(vraag, opties): # Stelt een vraag en blijft vragen tot de speler een geldige optie typt
     while True:
-        keuze = input(vraag).strip().lower()
+        keuze = input(vraag + ': ').strip().lower()
 
         if keuze in opties:
             return keuze
@@ -11,18 +11,20 @@ def vraag_keuze(vraag, opties):
         print('Ongeldige keuze. Probeer opnieuw!')
 
 
-def toon_einde(bericht, kleur):
+def toon_einde(bericht, kleur): # Laat een eindbericht in een kleur zien en stopt het programma
     print(colored(bericht, kleur))
     raise SystemExit
 
 
-def game_over():
+def game_over(): # Eindigt het spel met een rood 'Game over!' bericht
     toon_einde('Game over!', ROOD)
 
-def gewonnen(bericht):
+def gewonnen(bericht): # Eindigt het spel met een groen winbericht
     toon_einde(bericht, GROEN)
 
 def speel_bos():
+    # Het bos-pad: Kirby kan een sleutel pakken en tegen een Waddle Dee vechten
+    # Geeft terug of Kirby de sleutel en de magische ster heeft
     print('Kirby loopt het bos in en ziet een gouden sleutel liggen')
 
     keuze = vraag_keuze(
@@ -60,6 +62,8 @@ def speel_bos():
 
 
 def speel_grot():
+    # Het grot-pad: links geeft een magische ster, rechts is game over
+    # Er is geen sleutel in de grot, dus die is altijd False
     print('Kirby loopt een donkere grot in')
 
     keuze = vraag_keuze(
@@ -81,6 +85,7 @@ def speel_grot():
 
 
 def speel_kasteel(heeft_sleutel):
+     # Het kasteel: Kirby moet naar binnen met de sleutel of via een andere ingang
     print('\nKirby komt aan bij het kasteel')
     print('Er staat een grote deur')
 
@@ -109,7 +114,9 @@ def speel_kasteel(heeft_sleutel):
     else:
         print('Kirby klimt door een open raam naar binnen')
 
-def eindgevecht(heeft_magische_ster):
+def eindgevecht(heeft_magische_ster): 
+    # Het laatste gevecht tegen King Dedede
+    # Met de magische ster win je, zonder de ster is het game over
     print('\nKirby ziet king dedede met het sterrenkristal')
 
     keuze = vraag_keuze(

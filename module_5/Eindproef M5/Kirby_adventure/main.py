@@ -26,7 +26,7 @@ def main():
     heeft_magische_ster = voorwerpen["heeft_magische_ster"]
 
     speel_kasteel(heeft_sleutel)
-
+t
     eindgevecht(heeft_magische_ster)
 
 

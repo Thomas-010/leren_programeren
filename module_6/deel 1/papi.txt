@@ -1,0 +1,57 @@
+
+START
+
+    PRINT "Welkom bij Papi Gelato je mag alle smaken kiezen zolang het maar vanille ijs is."
+
+    HERHAAL
+
+        VRAAG "Hoeveel bolletjes wilt u?"
+        LEES aantal
+
+        ALS aantal tussen 1 en 3 DAN
+
+            HERHAAL
+                VRAAG "Wilt u deze bolletjes in een hoorntje of een bakje?"
+                LEES keuze
+
+                ALS keuze niet hoorntje en niet bakje DAN
+                    PRINT "Sorry, dat snap ik niet..."
+                EINDE ALS
+
+            TOTDAT keuze hoorntje of bakje is
+
+        ANDERS ALS aantal tussen 4 en 8 DAN
+
+            keuze = "bakje"
+            PRINT "Dan krijgt u van mij een bakje met aantal bolletjes"
+
+        ANDERS ALS aantal groter dan 8 DAN
+
+            PRINT "Sorry, zulke grote bakken hebben we niet"
+
+        ANDERS
+
+            PRINT "Sorry dat snap ik niet..."
+
+        EINDE ALS
+
+        ALS aantal tussen 1 en 8 DAN
+            PRINT "Hier is uw keuze met aantal bolletjes."
+
+            HERHAAL
+                VRAAG "Wilt u nog meer bestellen?"
+                LEES antwoord
+
+                ALS antwoord niet ja en niet nee DAN
+                    PRINT "Sorry, dat snap ik niet..."
+                EINDE ALS
+
+            TOTDAT antwoord ja of nee is
+
+        EINDE ALS
+
+    TOTDAT antwoord nee is
+
+    PRINT "Bedankt en tot ziens!"
+
+EINDE

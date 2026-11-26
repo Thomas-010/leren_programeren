@@ -11,3 +11,4 @@ FOUT_INVOER = 'Sorry dat snap ik niet'
 
 BEDANKT = 'Bedankt en tot ziens!'
 VRAAG_OPNIEUW = 'Wilt u nog een bestelling plaatsen? (ja/nee) '
+

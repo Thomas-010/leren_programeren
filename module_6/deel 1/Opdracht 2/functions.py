@@ -16,6 +16,7 @@ def vraag_aantal_bolletjes():
         else:
             print(data.FOUT_INVOER)
 
+
 def vraag_verpakking(aantal):
     if aantal >= 4:
         print(f'Dan krijgt u van mij een bakje met {aantal} bolletjes vanille ijs.')
@@ -45,6 +46,6 @@ def vraag_nog_een_bestelling():
             return False
 
         print(data.FOUT_INVOER)
-    
+  
 
 
